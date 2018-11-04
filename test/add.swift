@@ -29,7 +29,7 @@ class add: UIViewController {
         
         
         
-        let now = Diary(value: ["name": "today", "date": 20181103])
+        let now = Diary(value: ["name": "today", "date": "20181103"])
         
         do {
             let realm = try Realm()

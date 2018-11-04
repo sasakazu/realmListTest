@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36B1569BA8020C5F2FFFB0E73024ADD9"
-               BlueprintName = "RealmSwift"
+               BlueprintIdentifier = "1A6FECC5C8FE4684CA79AF49AF7FB007"
+               BlueprintName = "JBDatePicker"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "RealmSwift.framework">
+               BuildableName = "JBDatePicker.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

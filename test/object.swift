@@ -13,7 +13,7 @@ import RealmSwift
 
 class Diary: Object {
     @objc dynamic var name = ""
-    @objc dynamic var date = 0
+    @objc dynamic var date = ""
     
     let today = List<Carolie>()
     
