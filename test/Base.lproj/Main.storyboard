@@ -38,7 +38,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ElH-Dk-TGs"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUp-Df-Q5g">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUp-Df-Q5g" customClass="JBDatePickerView" customModule="JBDatePicker">
                                 <rect key="frame" x="0.0" y="64" width="375" height="263"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -58,11 +58,13 @@
                     <navigationItem key="navigationItem" id="U0V-fg-x9R">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y9d-gm-vlm">
                             <connections>
-                                <segue destination="IS2-Yp-hOR" kind="show" id="3Pb-71-q2J"/>
+                                <action selector="buttonTapped:" destination="BYZ-38-t0r" id="J3s-gW-MVP"/>
+                                <segue destination="IS2-Yp-hOR" kind="show" identifier="toDiary" id="3Pb-71-q2J"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="IUp-Df-Q5g" id="m6D-6G-zSI"/>
                         <outlet property="tableview" destination="IUb-a0-NM2" id="UAM-dS-aFc"/>
                     </connections>
                 </viewController>
@@ -111,6 +113,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="4i3-W2-gW4" id="BKV-Y9-KkU"/>
                         <outlet property="nameTF" destination="0EX-5A-u6Y" id="63r-Fs-WS5"/>
                         <outlet property="numberTF" destination="t8x-ih-aRe" id="xIK-uW-G3G"/>
                     </connections>

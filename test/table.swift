@@ -8,12 +8,16 @@
 
 import UIKit
 import RealmSwift
+import JBDatePicker
 
-class table: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class table: UIViewController,UITableViewDelegate, UITableViewDataSource, JBDatePickerViewDelegate {
     
      var carolieItem: Results<Carolie>!
+     var date: String!
 
 
+
+    @IBOutlet weak var datePicker: JBDatePickerView!
     @IBOutlet weak var tableview: UITableView!
     
     
@@ -35,9 +39,14 @@ class table: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
         tableview.delegate = self
         tableview.dataSource = self
+        
+        datePicker.delegate = self
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,6 +54,23 @@ class table: UIViewController,UITableViewDelegate, UITableViewDataSource {
         tableview.reloadData()
     
     }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        datePicker.updateLayout()
+    }
+    
+    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        return formatter
+    }()
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -72,5 +98,28 @@ class table: UIViewController,UITableViewDelegate, UITableViewDataSource {
     }
     
 
-
+    func didSelectDay(_ dayView: JBDatePickerDayView) {
+        print("date selected: \(dateFormatter.string(from: dayView.date!))")
+         date = dateFormatter.string(from: dayView.date!) //追加
+        
+        
+        
+    }
+    
+    
+    
+   
+    @IBAction func buttonTapped(_ sender: Any) {
+        
+         self.performSegue(withIdentifier: "toDiary", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toDiary") {
+            let diaryView = segue.destination as! DiaryViewController
+            diaryView.date = self.date
+        }
+    }
+    
+    
 }

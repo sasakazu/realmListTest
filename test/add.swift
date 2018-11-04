@@ -12,16 +12,18 @@ import RealmSwift
 class add: UIViewController {
     
     var testText:Int = 0
+    var date: String!
     
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameTF: UITextField!
-    
     @IBOutlet weak var numberTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dateLabel.text = date
+        
     }
     
 
